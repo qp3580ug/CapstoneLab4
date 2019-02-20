@@ -19,3 +19,7 @@ for row in cur.execute('SELECT rowid, * FROM Record_Holders WHERE holder = ?', (
     print(row['country'])
     print(row['catches'])
 
+holder_name_for_update = input('Enter Record Holder\'s name you would like to change: ')
+updated_catches = int(input('Enter a new number of catches for the Record Holder: '))
+
+cur.execute('UPDATE Record_Holder SET catches = ? WHERE holder = ?', (updated_catches, holder_name_for_update))
